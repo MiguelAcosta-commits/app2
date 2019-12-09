@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary" >
+    <ion-title><ion-icon name="home"></ion-icon>Configuración Hoteles</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+<ion-list>
+
+  <ion-item-sliding *ngFor="let item of lista; let i = index">
+
+   <button ion-item (click)="openNavDetailsPage(item)" >
+        {{item.title}}
+    </button>
+
+    <ion-item-options side="right">
+        <button ion-button color="danger"
+        (click) ="borrar_hotel (i)">
+          <ion-icon name="trash"></ion-icon>
+          Borrar
+        </button>
+      </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-list>
+
+<!-- <ion-item *ngFor="let hotel of hoteles"
+          (click)="openNavDetailsPage(item)">
+
+  <h2>{{hotel.nombre}}</h2>
+  <p>{{hotel.descripcion}}</p>
+
+</ion-item> -->
+
+
+
+<button icon-right ion-button color="primary" ion-button (click)="otraPagina()">
+Agregar
+<ion-icon name="add"></ion-icon></button>
+
+</ion-content>

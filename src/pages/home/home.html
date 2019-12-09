@@ -1,14 +1,43 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Control de Huéspedes
     </ion-title>
+    <button ion-button icon-only menuToggle><ion-icon name="menu"></ion-icon> </button>
   </ion-navbar>
 </ion-header>
 
+<ion-menu [content]="content" type="overlay">
+    <ion-header color="primary">
+      <ion-toolbar color="primary">
+        <ion-title color="primary">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button icon-left ion-item (click)="abrirPagina(principal)">
+        <ion-icon name="refresh"></ion-icon>
+        Actualizar
+      </button>
+        <button icon-left ion-item (click)="abrirPaginaTemp()">
+          <ion-icon name="alarm"></ion-icon>
+          Temporizador
+        </button>
+        <button icon-left ion-item (click)="abrirPaginaConfigBD()">
+            <ion-icon name="build"></ion-icon>
+            Configuración BD
+          </button>
+          <button icon-left ion-item (click)="abrirPaginaConfigH()">
+              <ion-icon name="home"></ion-icon>
+              Configuración Hoteles
+            </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <button icon-right ion-button color="primary" ion-button (click)="otraPagina()">Buscar<ion-icon name="search"></ion-icon></button>
 </ion-content>

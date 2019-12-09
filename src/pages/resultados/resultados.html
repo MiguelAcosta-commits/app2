@@ -1,0 +1,25 @@
+<ion-header >
+
+  <ion-navbar color="primary">
+    <ion-title>Realizar búsqueda</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="buscar_huesped($event)"></ion-searchbar>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of this.resultado"
+                [navParams]="{huesped: item}"
+                [navPush]="huespedPage">
+      {{item.Nombre + ' ' +  item.Apellido_Paterno + ' ' + item.Apellido_Materno}} Hotel: {{item.Hotel}}
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
