@@ -21,6 +21,8 @@ export class ResultadosPage {
 
   }
   resultado:any=[];
+
+
    buscar_huesped(ev:any)
   {
     let valor = ev.target.value;
@@ -34,6 +36,30 @@ export class ResultadosPage {
         this.resultado = data
         console.log(data)
         this.guardarStorage();
+
+        let arra=
+        {
+          //Mayan Palace Golf
+          'MST': 'GREEN',
+          'MMR': 'GREEN',
+          'MSS': 'GREEN',
+          //Grand Mayan
+          'GST': 'RED',
+          'GMR': 'RED',
+          'GSS': 'RED',
+          //Mayan Palace Playa
+          'PST': 'BLUE',
+          'PMR': 'BLUE',
+          'PSS': 'BLUE',
+          //Sea Garden
+          'SST': 'ORANGE',
+          'SMR': 'ORANGE',
+          'SSS': 'ORANGE',
+        }
+        let tipoHotel= this.resultado.h_tpo_hab;
+        let color = arra[tipoHotel];
+        console.log(color);
+
     })
 
   }
