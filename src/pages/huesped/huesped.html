@@ -1,48 +1,46 @@
 
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>{{huesped.Nombre + ' ' +  huesped.Apellido_Paterno + ' ' + huesped.Apellido_Materno}}</ion-title>
+  <ion-navbar [color]="this.array[huesped.h_tpo_hab]" >
+    <ion-title text-center>{{huesped.h_nom}}</ion-title>
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content>
 
   <ion-list>
     <ion-item>
-      Nombre:  {{huesped.Nombre + ' ' +  huesped.Apellido_Paterno + ' ' + huesped.Apellido_Materno}}
+      Nombre:  {{huesped.h_nom}}
     </ion-item>
     <ion-item>
-       Tipo de Huesped: {{huesped.Tipo_Huesped}}
+       Tipo de Huesped: {{huesped.h_tpo_hsp}}
       </ion-item>
     <ion-item>
-     Total De Habitaciones: {{huesped.Total_Hab}}
+     Mercado: {{huesped.h_seg_mer}}
     </ion-item>
     <ion-item>
-      Agencia:  {{huesped.Agencia}}
+     Total De Habitaciones: {{huesped.h_tot_hab}}
+    </ion-item>
+    <ion-item>
+        Tipo De Habitacion:  {{huesped.h_tpo_hab}}
+    </ion-item>
+    <ion-item>
+        Num De Habitacion:  {{huesped.h_num_hab}}
+    </ion-item>
+    <ion-item>
+      Agencia:  {{huesped.h_cod_age}}
       </ion-item>
       <ion-item>
-        Total de Personas:  {{huesped.Total_Personas}}
+        Total de Personas:  {{huesped.h_num_per}}
       </ion-item>
       <ion-item>
-         Fecha de Llegada: {{huesped.Fecha_Llegada}}
+         Fecha de Llegada: {{huesped.h_fec_lld}}
       </ion-item>
       <ion-item>
-        Ciudad:  {{huesped.Ciudad}}
+        Ciudad:  {{huesped.h_ciu}}
       </ion-item>
       <ion-item>
-        Estado:  {{huesped.Estado}}
+        Estado:  {{huesped.h_edo}}
       </ion-item>
-      <ion-item>
-        Hotel:  {{huesped.Hotel}}
-      </ion-item>
-      <ion-item>
-        Tipo De Habitacion:  {{huesped.Tipo_Hab}}
-      </ion-item>
-
-  </ion-list>
-
-
+ </ion-list>
 </ion-content>

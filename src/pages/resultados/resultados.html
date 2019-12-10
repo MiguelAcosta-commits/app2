@@ -13,10 +13,11 @@
 
 
   <ion-list>
-    <ion-item *ngFor="let item of this.resultado"
+    <ion-item [color]="this.array[item.h_tpo_hab]" *ngFor="let item of this.resultado"
                 [navParams]="{huesped: item}"
                 [navPush]="huespedPage">
-      {{item.h_nom}} Tipo Hab: {{item.h_tpo_hab}}
+      {{item.h_nom}} Hab: {{item.h_tpo_hab}}
+
     </ion-item>
   </ion-list>
 
