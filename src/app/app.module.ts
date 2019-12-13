@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { BuscadorProvider } from '../providers/buscador/buscador';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { TodosProvider } from '../providers/todos/todos';
 
 
 
@@ -63,7 +64,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BuscadorProvider,
-    UsuarioProvider
+    UsuarioProvider,
+    TodosProvider
   ]
 })
 export class AppModule {}

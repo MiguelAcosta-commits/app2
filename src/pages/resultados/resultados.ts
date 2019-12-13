@@ -18,6 +18,8 @@ export class ResultadosPage {
               public _hs:BuscadorProvider,
               private platform: Platform,
               private storage: Storage ) {
+                this.guardarStorage();
+                this.obtenerStorage();
 
   }
   resultado:any=[];
@@ -61,6 +63,11 @@ export class ResultadosPage {
 
   }
 
+  obtenerStorage()
+  {
+    let huesped =JSON.parse( localStorage.getItem("huesped") );
+  }
+
   guardarStorage()
   {
     if (this.platform.is('cordova') )
@@ -71,7 +78,7 @@ export class ResultadosPage {
     else
     {
       //Escritorio
-      localStorage.setItem('huesped',this.resultado);
+      localStorage.setItem('huesped',JSON.stringify(this.resultado));
     }
 
   }

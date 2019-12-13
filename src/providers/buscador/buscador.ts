@@ -8,7 +8,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class BuscadorProvider {
 
-
   constructor(private http:HttpClient) {
     console.log('Hello BuscadorProvider Provider');
   }
@@ -17,9 +16,8 @@ export class BuscadorProvider {
   let url = URL_SERVICIOS + "/prueba/obtener_huesped/" + termino;
 
    return this.http.get( url )
-
-
 }
+
 
 }
 
