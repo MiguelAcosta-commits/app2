@@ -104,9 +104,6 @@ export class HomePage {
             resolve(false);
           }
         })
-
-
-
       this.storage.set('todos',this.todos);
     }
     else
