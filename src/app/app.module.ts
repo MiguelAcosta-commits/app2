@@ -24,7 +24,9 @@ import { BuscadorProvider } from '../providers/buscador/buscador';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { TodosProvider } from '../providers/todos/todos';
 
+import { Network } from '@ionic-native/network';
 
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { TodosProvider } from '../providers/todos/todos';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BuscadorProvider,
     UsuarioProvider,
-    TodosProvider
+    TodosProvider,
+    Network,
+    SQLite
   ]
 })
 export class AppModule {}
