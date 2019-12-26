@@ -69,7 +69,7 @@ import { SQLite } from '@ionic-native/sqlite';
     UsuarioProvider,
     TodosProvider,
     Network,
-    SQLite
+    SQLite,
   ]
 })
 export class AppModule {}

@@ -27,29 +27,45 @@ export class ResultadosPage {
             private platform: Platform,
             private storage: Storage,
             private network: Network) {
+              this.EstadoDeRed();
 
         }
         // Ciclo de vida que se inicializa cuando se entra a una pagina
-    ionViewDidLoad() { console.log("entra")
-         this._hs.obtener_huespedes()
-             .subscribe((data: any) => {
-                 this.resultado = data
-                 this.guardarStorage();
-             })
+    ionViewDidLoad() {
 
-        // // Detecta si se ha desconectado de internet
-        // this.network.onDisconnect().subscribe(() => {
-        //     this.obtenerStorage()
-        // });
+        // Descomentar Cuando se este haciendo pruebas en el navegador
+        // Comentar las lineas cuando se va a ejecuatar en android apk
+        // this._hs.obtener_huespedes()
+        //     .subscribe((data: any) => {
+        //         this.resultado = data
+        //         this.guardarStorage();
+        //         console.log("entra a ionviewdidload")
+        //     })
 
-        // // Detecta si se ha conectado a internet
-        // this.network.onConnect().subscribe(() => {
-        //     this._hs.obtener_huespedes()
-        //         .subscribe((data: any) => {
-        //             this.resultado = data
-        //             this.guardarStorage();
-        //         })
-        // });
+        // Comentar Cuando se este haciendo pruebas en el navegador
+        // Descomenatr las lineas cuando se va a ejecuatar en android apk
+
+        // // // Detecta si se ha desconectado de internet
+
+    }
+
+    EstadoDeRed()
+    {
+      console.log("Ingreso a la funcion de red");
+      this.network.onDisconnect().subscribe(() => {
+        this.obtenerStorage()
+        console.log("Desconectado de Internet");
+    });
+
+  // // // Detecta si se ha conectado a internet
+  console.log("Conectado a Internet");
+    this.network.onConnect().subscribe(() => {
+        this._hs.obtener_huespedes()
+            .subscribe((data: any) => {
+                this.resultado = data
+                this.guardarStorage();
+            })
+    });
     }
 
 
@@ -92,19 +108,33 @@ export class ResultadosPage {
     }
 
     obtenerStorage() {
-        if (this.platform.is('cordova')) {
-            //Celular
-            this.resultado = JSON.stringify(this.storage.get('huesped'));
-        } else {
-            //Escritorio
-            this.resultado = JSON.parse(localStorage.getItem("huesped"));
-        }
+
+      if (this.platform.is('cordova')) {
+        //Celular
+
+
+        this.storage.get('huesped').then((data) => {
+            this.resultado = JSON.parse(data);
+        })
+
+    } else {
+        //Escritorio
+        this.resultado = JSON.parse(localStorage.getItem("huesped"));
+    }
+
     }
 
     guardarStorage() {
         if (this.platform.is('cordova')) {
             //Celular
-            this.storage.set('huesped', this.resultado);
+
+            this.storage.ready()
+            .then(()=>
+            {
+              this.storage.set('huesped', JSON.stringify(this.resultado));
+            })
+
+
         } else {
             //Escritorio
             localStorage.setItem('huesped', JSON.stringify(this.resultado));
